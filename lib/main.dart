@@ -5,7 +5,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:fluttertemp/services/auth_service.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'helpers/theme.dart';
 
 void main() async {

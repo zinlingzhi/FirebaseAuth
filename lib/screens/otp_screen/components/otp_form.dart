@@ -5,11 +5,14 @@ import 'package:fluttertemp/screens/home/home_screen.dart';
 import 'package:fluttertemp/helpers/size_config.dart';
 
 class OtpForm extends StatefulWidget {
+  final String phoneNumber;
+  OtpForm({Key key, this.phoneNumber}) : super(key: key);
   @override
   _OtpFormState createState() => _OtpFormState();
 }
 
 class _OtpFormState extends State<OtpForm> {
+  String phoneNumber;
   FocusNode pin2FocusNode;
   FocusNode pin3FocusNode;
   FocusNode pin4FocusNode;
@@ -17,6 +20,7 @@ class _OtpFormState extends State<OtpForm> {
   @override
   void initState() {
     super.initState();
+    phoneNumber = widget.phoneNumber;
     pin2FocusNode = FocusNode();
     pin3FocusNode = FocusNode();
     pin4FocusNode = FocusNode();

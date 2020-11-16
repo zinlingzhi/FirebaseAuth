@@ -13,6 +13,8 @@ class OtpScreen extends StatefulWidget {
 class _OtpScreenState extends State<OtpScreen> {
   @override
   Widget build(BuildContext context) {
+    String phoneNumber = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -35,7 +37,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   "Enter the 4-digit code sent to \nyour phone number +1 808 600 ****",
                   textAlign: TextAlign.center,
                 ),
-                OtpForm(),
+                OtpForm(phoneNumber: phoneNumber),
                 SizedBox(height: SizeConfig.screenHeight * 0.05),
                 GestureDetector(
                   onTap: () {
