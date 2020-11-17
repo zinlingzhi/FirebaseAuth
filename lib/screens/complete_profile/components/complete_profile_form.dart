@@ -138,6 +138,9 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                                       ),
                                     ),
                                     SizedBox(
+                                      width: 20,
+                                    ),
+                                    SizedBox(
                                       width: getProportionateScreenWidth(60),
                                       child: TextFormField(
                                         focusNode: pin2FocusNode,
@@ -165,6 +168,9 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                                       ),
                                     ),
                                     SizedBox(
+                                      width: 20,
+                                    ),
+                                    SizedBox(
                                       width: getProportionateScreenWidth(60),
                                       child: TextFormField(
                                         focusNode: pin3FocusNode,
@@ -190,6 +196,9 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                                               focusNode: pin4FocusNode);
                                         },
                                       ),
+                                    ),
+                                    SizedBox(
+                                      width: 20,
                                     ),
                                     SizedBox(
                                       width: getProportionateScreenWidth(60),
@@ -224,12 +233,10 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                                 DefaultButton(
                                   title: "Continue",
                                   press: () async {
-                                    print("smsCode:$smsCode");
                                     PhoneAuthCredential phoneAuthCredential =
                                         PhoneAuthProvider.credential(
                                             verificationId: verificationId,
                                             smsCode: smsCode);
-                                    print(phoneAuthCredential);
                                     // try {
                                     //   UserCredential userCredential =
                                     //       await auth.signInWithCredential(
@@ -252,10 +259,15 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
                                     //     print("Resend code");
                                     //   }
                                     // }
-                                    Navigator.pushNamed(
-                                        context, HomeScreen.routeName);
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            HomeScreen(uid: uid),
+                                      ),
+                                    );
                                   },
-                                )
+                                ),
                               ],
                             ),
                           ),

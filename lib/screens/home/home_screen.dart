@@ -4,7 +4,8 @@ import 'package:fluttertemp/services/auth_service.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = "\home";
-  HomeScreen({Key key}) : super(key: key);
+  final String uid;
+  HomeScreen({Key key, this.uid}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -12,10 +13,15 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final AuthService _authService = AuthService();
+  String uid;
+  @override
+  void initState() {
+    super.initState();
+    uid = widget.uid;
+  }
+
   @override
   Widget build(BuildContext context) {
-    String uid = ModalRoute.of(context).settings.arguments;
-
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[

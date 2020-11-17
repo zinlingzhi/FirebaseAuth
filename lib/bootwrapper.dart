@@ -13,7 +13,7 @@ class Bootwrapper extends StatelessWidget {
     if (user == null) {
       return SplashScreen();
     } else {
-      return HomeScreen();
+      return HomeScreen(uid: user.uid);
     }
   }
 }

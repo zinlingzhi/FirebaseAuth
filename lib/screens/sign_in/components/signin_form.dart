@@ -64,8 +64,12 @@ class _SignInFormState extends State<SignInForm> {
                 dynamic result = await _authService.signInWithEmailAndPassword(
                     email, password);
                 if (result != null) {
-                  Navigator.pushNamed(context, HomeScreen.routeName,
-                      arguments: result.uid);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(uid: result.uid),
+                    ),
+                  );
                 } else {
                   if (!errors.contains(accountNullError))
                     errors.add(accountNullError);
